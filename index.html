@@ -3,45 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <head>
+      <link rel="stylesheet" href="style.css" />
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
       <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet"
       />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
       <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     </head>
-
+<link rel="icon" href="/assets/logo-title.svg">
     <title>flantter-builder.com</title>
   </head>
   <body>
     <header>
-    <!-- Navbar start -->
-    <nav id="nav">
-      <!-- Logo -->
-      <div>
-        <a href="#"> <img src="./assets//Logo.svg" alt="Logo" /></a>
-      </div>
+      <!-- Navbar start -->
+      <nav id="nav">
+        <!-- Logo -->
+        <div>
+          <a id="lg-logo" href="#"> <img src="./assets/Logo.svg" alt="Logo" /></a>
+        </div>
 
-      <!-- Navigation Links -->
-      <ul class="nav-links">
-        <div class="li">
-        <li>About us</li>
-        <li>Features <i class="fa-solid fa-angle-down"></i></li>
-        <li>Blog</li>
-        <li>Pricing</li>
-        <li>Contact</li>
-        <li><a href="">login</a></li>
-        <button><a href="" > <p>Get Started</p></a></button>
-      </div>
-      </ul>
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <div class="li">
+            <li>Resource</li>
+            <li class="dropdown">
+              Features
+              <i id="option" class="fa-solid fa-angle-down"></i>
+              <ul
+                class="dropdown-menu animate__animated animate__zoomIn animate__faster"
+              >
+                <li><a href="">Real Madrid</a></li>
+                <li><a href="">Real Madrid</a></li>
+                <li><a href="">Real Madrid</a></li>
+              </ul>
+            </li>
 
-      <!-- Login and Get Started -->
-      <div class="auth-buttons">
-        <a href="#">Login</a>
-        <button class="get-started">Get Started</button>
-      </div>
+            <li><a href="">Blog</a></li>
+            <li>Pricing</li>
+            <li>Contact</li>
+            <li class="login-togle"><a href="">login</a></li>
+            <button>
+              <a href=""><p>Get Started</p></a>
+            </button>
+          </div>
+        </ul>
+
+        <!-- Login and Get Started -->
+        <div class="auth-buttons">
+          <a href="#">Login</a>
+          <button class="get-started"><a href="">Get Started</a></button>
+        </div>
         <div class="menu-toggle">
           <input type="checkbox" />
           <span></span>
@@ -49,7 +73,6 @@
           <span></span>
         </div>
       </nav>
-    </nav>
     </header>
     <!-- Navbar end -->
 
@@ -78,7 +101,9 @@
         </div>
 
         <div class="start-now">
-          <button>Start Now Builder</button>
+          <button>
+            <span><a href="">Start Now Builder</a></span>
+          </button>
         </div>
 
         <div class="hero-img">
@@ -272,13 +297,40 @@
 
       <!-- banner documentation start-->
       <section class="banner">
-        <div class="this-banner">
-          <img src="/assets/documentation.png" alt="" />
+        <div class="banner-content">
+          <div class="document-banner">
+            <div class="head-banner">
+              <p><img src="/assets/feature.svg" alt="" />Documentation</p>
+
+              <h2>Documentation <br> that converts users</h2>
+              <p>
+                Deliver user-friendly, clear, and actionable documentation that
+                simplifies complex processes, <br> builds trust, and drives users
+                toward success effortlessly.
+              </p>
+            </div>
+            <div class="paragraf-banner">
+              <div class="scroll">
+                <h3>Working Space</h3>
+                <p>
+                  Customize your coding experience and expand your skills
+                  effortlessly.
+                </p>
+              </div>
+              <h4>Dashboard Menu</h4>
+              <h4>Template Marketplace</h4>
+              <h4>Updated Liblary</h4>
+            </div>
+          </div>
+          <!-- <div class="img-banner">
+            <img src="/assets/banner_img.png" alt="" />
+          </div> -->
         </div>
       </section>
       <!-- banner documentation end -->
 
       <!-- banner documentation mobile start-->
+
       <section class="banner2">
         <div class="this-banner2">
           <img src="/assets/documentation2.png" alt="" />
@@ -301,9 +353,12 @@
           </div>
           <div class="year">
             <div class="this-year">
-              <p>Montly</p>
-              <img src="/assets/Switch.svg" alt="" />
-              <p>Yearly</p>
+              <p id="monthly">Monthly</p>
+              <label class="switch">
+                <input type="checkbox" id="switch-toggle" />
+                <span class="slider"></span>
+              </label>
+              <p id="yearly">Yearly</p>
             </div>
           </div>
         </div>
@@ -312,7 +367,7 @@
             <div class="option1">
               <div class="plan">
                 <h3>Basic Plan</h3>
-                <h2>$10/ <span>month</span></h2>
+                <h2 id="price">$10/ <span id="price-duration">month</span></h2>
                 <p>Ideal for individuals and small projects.</p>
               </div>
               <div class="join-member">
@@ -345,7 +400,7 @@
             <div class="option1">
               <div class="plan">
                 <h3>Profesional Plan</h3>
-                <h2>$25/ <span>month</span></h2>
+                <h2 id="price1">$25/ <span id="price-duration">month</span></h2>
                 <p>Perfect for freelancers and small businesses.</p>
               </div>
               <div class="join-member">
@@ -383,12 +438,18 @@
               <div class="card3font">
                 <div class="businnes">
                   <h3>Businnes Plan</h3>
-                  <button>Recomendation</button>
+                  <button class="btn">
+                    <span class="btn-text-one">Recomendation</span>
+                    <span class="btn-text-two">Great!</span>
+                  </button>
                 </div>
-                <h2>$50/ <span>month</span></h2>
+
+                <h2 id="price2">$50/ <span id="price-duration">month</span></h2>
                 <p>Best for growing businesses and enterprises.</p>
                 <div class="join-premium">
-                  <button>Join Member</button>
+                  <button>
+                    <span><a href="">Join Member</a></span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -451,24 +512,48 @@
               finance solutions secure?
               <i class="fa-solid fa-angle-down"></i>
             </h4>
+            <p>
+              Mangcoding offers expert SaaS finance solutions, <br />
+              providing secure, scalable, and efficient <br />
+              platforms designed to streamline financial operations for your
+              business.
+            </p>
           </div>
           <div class="asked-c">
             <h4>
               How can Mangcoding’s SaaS finance <br />
               solutions help my business?<i class="fa-solid fa-angle-down"></i>
             </h4>
+            <p>
+              Mangcoding offers expert SaaS finance solutions, <br />
+              providing secure, scalable, and efficient <br />
+              platforms designed to streamline financial operations for your
+              business.
+            </p>
           </div>
           <div class="asked-d">
             <h4>
               Is Mangcoding’s SaaS finance solution <br />
               scalable?<i class="fa-solid fa-angle-down"></i>
             </h4>
+            <p>
+              Mangcoding offers expert SaaS finance solutions, <br />
+              providing secure, scalable, and efficient <br />
+              platforms designed to streamline financial operations for your
+              business.
+            </p>
           </div>
           <div class="asked-e">
             <h4>
               Can Mangcoding integrate with existing <br />
               financial systems?<i class="fa-solid fa-angle-down"></i>
             </h4>
+            <p>
+              Mangcoding offers expert SaaS finance solutions, <br />
+              providing secure, scalable, and efficient <br />
+              platforms designed to streamline financial operations for your
+              business.
+            </p>
           </div>
         </div>
       </section>
@@ -522,7 +607,7 @@
               </div>
             </div>
             <div class="card-carousel active">
-              <div class="biodata-carousel ">
+              <div class="biodata-carousel">
                 <div class="img-carousel">
                   <img src="/assets/avatar_card1.svg" alt="" />
                 </div>
@@ -574,9 +659,6 @@
 
       <!-- tamplate start -->
       <section class="tamplates">
-        <!-- <div class="bg">
-          <img src="/assets/bg-bg.png" alt="" />
-        </div> -->
         <div class="heading-template">
           <div class="them">
             <p><img src="/assets/feature.svg" alt="" />Template Them</p>
@@ -593,7 +675,9 @@
             exceptional results.
           </p>
           <div class="btn-tamplate">
-            <button>See Other Template</button>
+            <button>
+              <span><a href="">See Other Template</a></span>
+            </button>
           </div>
         </div>
       </section>
