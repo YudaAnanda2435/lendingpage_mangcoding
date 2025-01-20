@@ -1,3 +1,30 @@
+import Swiper from "swiper";
+import "swiper/swiper-bundle.min.css";
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const swiper = new Swiper(".swiper-container", {
+    centeredSlides: true, // Ensure active slide is in the center
+    spaceBetween:24, // Gap between slides
+    loop: true, // Enable looping
+    slideToClickedSlide: false, // Slide to clicked slide
+    slideActiveClass: "active", // Adds 'active' class to the center slide
+    autoplay: {
+      delay: 100, // Delay in milliseconds (1000 ms = 1 second)
+      disableOnInteraction: false, // Keep autoplay running even after user interacts with the swiper
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3, 
+      },
+      380: {
+        slidesPerView: 1,
+      }
+    },
+  });
+});
+
+
 const menuToggle = document.querySelector(".menu-toggle input");
 const nav = document.querySelector("nav ul");
 
@@ -5,47 +32,72 @@ menuToggle.addEventListener("click", function () {
   nav.classList.toggle("slide");
 });
 
+// option
+// Pilih elemen dropdown dan menu dropdown
+const dropdown = document.querySelector(".dropdown ");
+const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+const faSolid = dropdown.querySelector(".fa-solid");
+
+// Tambahkan event listener untuk menangani klik pada dropdown
+dropdown.addEventListener("click", function (e) {
+  e.stopPropagation();
+  // Toggle visibilitas menu dropdown (tampil atau sembunyi)
+  faSolid.style.transform =
+    faSolid.style.transform === "rotate(180deg)"
+      ? "rotate(0deg)"
+      : "rotate(180deg)";
+  dropdownMenu.style.display =
+    dropdownMenu.style.display === "block" ? "none" : "block";
+});
+
+document.addEventListener("click", function () {
+  faSolid.style.transform = "rotate(0deg)";
+  dropdownMenu.style.display = "none";
+});
+// option
+
+
 // nav opacity scroll
 window.addEventListener("scroll", function () {
   const nav = document.getElementById("nav");
   const option = document.getElementById("option");
-  const threshold = 64; // 4rem in pixels (assuming 1rem = 16px)
+  const threshold = 90; // 4rem in pixels (assuming 1rem = 16px)
 
   if (window.scrollY >= threshold) {
     nav.style.backgroundColor = "rgba(0, 0, 0, 0.4)"; // Black with 50% opacity
     nav.style.backdropFilter = "blur(5px)"; // Add a 5px blur
     option.style.color = "gray";
-    nav.style.padding = "6px 80px ";
+    nav.style.display = "flex";
+    nav.style.justifyContent = "space-between";
+    nav.style.paddingBlock = "8px";
   } else {
-    nav.style.backgroundColor = "rgba(255, 255, 255, 1)"; // White with full opacity
+    nav.style.backgroundColor = "transparent"; // Reset to transparent
     nav.style.backdropFilter = "blur(0)"; // Remove blur
+    nav.style.paddingBlock = "12px";
     option.style.color = "black";
-    nav.style.padding = "14px 80px";
   }
 });
-
 // nav opacity scroll
-
 
 // asked
 // Select all asked elements
-document.querySelectorAll(".option-asked > div").forEach(function (asked) {
-  const icon = asked.querySelector(".fa-solid ");
-  const paragraph = asked.querySelector("p");
+  document.querySelectorAll(".option-asked > div").forEach(function (asked) {
+    const icon = asked.querySelector(".fa-solid ");
+    const paragraph = asked.querySelector("p");
 
-  // Add click event to each icon
-  icon.addEventListener("click", function () {
-    // Close all paragraphs in other asked elements
-    document.querySelectorAll(".option-asked p").forEach(function (p) {
-      if (p !== paragraph) {
-        p.classList.remove("show");
-      }
+    // Add click event to each icon
+    icon.addEventListener("click", function () {
+      // Close all paragraphs in other asked elements
+      document.querySelectorAll(".option-asked p").forEach(function (p) {
+        if (p !== paragraph) {
+          p.classList.remove("show");
+        }
+      });
+
+      // Toggle the current paragraph
+      paragraph.classList.toggle("show");
     });
-
-    // Toggle the current paragraph
-    paragraph.classList.toggle("show");
   });
-});
 
 // asked
 
@@ -81,25 +133,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const cards = document.querySelectorAll(".card-carousel");
+// Inisialisasi Swiper.js untuk mengatur slide
+//
 
-cards.forEach((card, index) => {
-  card.addEventListener("click", () => {
-    cards.forEach((c) => c.classList.remove("active"));
-    card.classList.add("active");
-    const offset = 20;
-    cards.forEach((c, i) => {
-      const position = i - index;
-      c.style.transform = `translateX(${position * offset}px) scale(${
-        i === index ? 1 : 1
-      })`;
-      c.style.opacity = i === index ? 1 : 0.5;
-      c.style.filter = i === index ? "blur(0)" : "blur(2px)";
+document
+  .querySelectorAll(".paragraf-banner > div h4")
+  .forEach(function (heading) {
+    heading.addEventListener("click", function () {
+      const parentDiv = heading.parentElement;
+      const paragraph = parentDiv.querySelector("p");
+
+      // Hide all other paragraphs
+      document
+        .querySelectorAll(".paragraf-banner > div p")
+        .forEach(function (p) {
+          if (p !== paragraph) {
+            p.classList.remove("show");
+            p.parentElement.classList.remove("active");
+          }
+        });
+
+      // Toggle the current paragraph
+      paragraph.classList.toggle("show");
+      parentDiv.classList.toggle("active");
     });
   });
-});
-
-cards.forEach((card, i) => {
-  const offset = 10;
-  card.style.transform = `translateX(${i * offset}px)`;
-});
